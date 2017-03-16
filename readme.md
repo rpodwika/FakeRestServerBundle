@@ -1,16 +1,16 @@
-___Fake Rest Server Bundle___
+# Fake Rest Server Bundle
 
 [![Build Status](https://travis-ci.org/rpodwika/FakeRestServerBundle.svg)](https://travis-ci.org/rpodwika/FakeRestServerBundle)
 [![Coverage Status](https://coveralls.io/repos/github/rpodwika/FakeRestServerBundle/badge.svg?branch=master)](https://coveralls.io/github/rpodwika/FakeRestServerBundle?branch=master)
 
 FakeRestServerBundle is a bundle to create a fully working API based on YAML schema definition.
 
-# How it works?
+## How it works?
 
 It parsers a YAML file with the database schema and based on that it creates the endpoints with possibility 
 to perform requests such as GET, POST, PUT, HEAD, DELETE and OPTIONS
 
-## Schema definition
+### Schema definition
     
 Given following schema defined in YAML 
     
@@ -49,7 +49,7 @@ Following endpoints will be created
     FAKE_SERVER_OPTIONS_pictures   OPTIONS   ANY      ANY    /pictures/{pictures}  
 ```
     
-# Plans
+## Plans
     
    * Adding JSON schema definition
    * Adding PHP array schema definition
