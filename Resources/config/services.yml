@@ -1,0 +1,26 @@
+services:
+
+  rpodwika_fake_rest_server.routing.yaml_route_loader:
+    class: Rpodwika\FakeRestServerBundle\Routing\YamlRouteLoader
+    arguments: ["@rpodwika_fake_rest_server.database.yaml_database_provider", "@rpodwika_fake_rest_server.routing.fake_route_factory"]
+    tags:
+       - { name: routing.loader }
+
+  rpodwika_fake_rest_server.database.yaml_database_provider:
+    class: Rpodwika\FakeRestServerBundle\Database\YamlDatabaseProvider
+    arguments: ["%fake_rest_server.database_file%", "@kernel", "@rpodwika_fake_rest_server.parser.yaml_parser", '@?']
+    tags:
+      - { name: fake_rest_server.database_provider}
+
+  rpodwika_fake_rest_server.routing.fake_route_factory:
+    class: Rpodwika\FakeRestServerBundle\Routing\FakeRouteFactory
+
+  rpodwika_fake_rest_server.database.schema_reader:
+    class: Rpodwika\FakeRestServerBundle\Database\SchemaReader
+    arguments: ['@rpodwika_fake_rest_server.database.yaml_database_provider']
+
+  fake_rest_server.schema_reader:
+    alias: "rpodwika_fake_rest_server.database.schema_reader"
+
+  rpodwika_fake_rest_server.parser.yaml_parser:
+    class: Rpodwika\FakeRestServerBundle\Parser\YamlParser

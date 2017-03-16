@@ -1,0 +1,10 @@
+# IDE files
+
+.idea
+
+# composer
+vendor/*
+
+# coverage
+build/
+build/logs/*
